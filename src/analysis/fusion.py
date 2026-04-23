@@ -69,16 +69,19 @@ def apply_decision_rules(fusion_score: float) -> str:
     return "SELL"
 
 
-def compute_risk_level(volatility_label: str, fusion_score: float) -> str:  # noqa: ARG001
+def compute_risk_level(volatility_label: str, fusion_score: float) -> str:
     """Derive a qualitative risk level primarily from volatility.
 
     Args:
         volatility_label: ``"High"``, ``"Medium"``, or ``"Low"``.
-        fusion_score:     Unused; reserved for future composite risk models.
+        fusion_score:     Currently unused; retained in the signature for
+                          future composite risk models that factor in the
+                          fusion score alongside volatility.
 
     Returns:
         ``"High"``, ``"Medium"``, or ``"Low"``.
     """
+    _ = fusion_score  # reserved for future composite risk logic
     return volatility_label
 
 
